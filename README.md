@@ -10,7 +10,7 @@ This simple Java Library intends to provide Java code with a shorter, safer synt
 Whilst Java 8 has introduced some new features to handle null values (see <a href="http://www.oracle.com/technetwork/articles/java/java8-optional-2175753.html">Optional</a>) this is still far from being concise and useful in my opinion. 
 </p>
 
-<p>Unfortunately a <b>safe navigation operator</b> like C# and Groovy is still not available in Java. If it wasn't clear I am talking about this:
+<p>Unfortunately a <b>safe navigation operator</b> available in languages such as C# and Groovy is still not available in Java. If it wasn't clear, I am talking about this:
 <code>String version = computer?.getSoundcard()?.getUSB()?.getVersion();</code></p>
 
 Rather than: 
@@ -31,15 +31,15 @@ There are three methods in the Utils, <b>isAccessible()</b>, <b>get()</b> and <b
 
 <p><b>1) "isAccessible()" Find out if a property is null</b></p>
 <p>
-<code>NullSafeUtils.isAccessible(company, "director", "address", "street");</code></p>
-<p>Having an Object company we can dig into the Object's properties "director", "address" and "street" safely since the null checks are all done for us. Finally we will be told if the property is indeed accessible (boolean).
+<code>NullSafeUtils.isAccessible(computer, "soundcard", "usb", "version");</code></p>
+<p>Having an Object company we can dig into the Object's properties "soundcard", "usb" and "version" safely since the null checks are all done for us. Finally we will be told if the property is indeed accessible (boolean).
 </p>
 
 
 <p><b>2) "get()" Get the property<b></p>
 
 <p>
-<code>NullSafeUtils.get(company, "director", "address", "street");</code>
+<code>NullSafeUtils.get(computer, "soundcard", "usb", "version");</code>
 </p>
 
 <p>
@@ -74,12 +74,12 @@ There are three methods in the Utils, <b>isAccessible()</b>, <b>get()</b> and <b
 <p><b>3) "getOr()" Get the property or provide an alternative<b></p>
 
 <p>
-<code>NullSafeUtils.getOr(company, "director", "address", "street").or("street not available");</code>
+<code>NullSafeUtils.getOr(computer, "soundcard", "usb", "version").or("UNKNOWN");</code>
 </p>
 
 <b>An Example:</b></br>
 <pre>
-       String alternative = "not found";
+       String alternative = "N/A"; // some countries don't have postcode
         
         // the postoce is null so we are expecting to be returned the alternative
         assertEquals(alternative, NullSafeUtils.getOr(company, "director", "address", "postcode").or(alternative));     
