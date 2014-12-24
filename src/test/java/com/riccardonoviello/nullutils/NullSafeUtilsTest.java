@@ -76,6 +76,29 @@ public class NullSafeUtilsTest {
         
     }
     
+    
+    @Test
+    public void getOr_doesNotThrowNullPointer_notNull() throws NullPointerException {
+        Company company = buildCompany();
+        
+        assertNotNull(NullSafeUtils.getOr(company, "director", "address", "street"));
+
+        assertEquals("33 fake road", NullSafeUtils.get(company, "director", "address", "street"));
+
+        
+    }
+    
+    
+    @Test
+    public void getOr_doesNotThrowNullPointer_alternative() throws NullPointerException {
+        Company company = buildCompany();
+        
+        String alternative = "not found";
+        
+        // the postoce is null so we are expecting to be returned the alternative
+        assertEquals(alternative, NullSafeUtils.getOr(company, "director", "address", "postcode").or(alternative));        
+    }
+    
     @Test
     public void demonstration(){
         
@@ -114,7 +137,7 @@ public class NullSafeUtilsTest {
         Address address = new Address();
         address.setStreet("33 fake road");
         address.setCountry("Newport, UK");
-        address.setPostcode("np2077sp");
+        address.setPostcode(null);
 
         director.setAddress(address);
         company.setDirector(director);

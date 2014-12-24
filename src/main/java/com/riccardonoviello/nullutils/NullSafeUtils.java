@@ -84,6 +84,20 @@ public class NullSafeUtils {
         return (found == originalSize) ? object : o;
     }
     
+    
+    /**
+     * 
+     * @param <T>
+     * @param object
+     * @param alternative
+     * @param members
+     * @return 
+     */
+    public static <T> Alternable getOr(T object, String... members) {
+        Object result = get(members, object, 0, members.length);
+        return new Alternable(result);        
+    }    
+    
     /**
      * Returns the tail array of arguments
      *
