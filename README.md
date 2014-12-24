@@ -68,3 +68,18 @@ This is very simple Utils you can use as follows:
     
 </pre>
 </p>
+
+
+
+<p><b>3) Get the property or provide an alternative<b></p>
+
+<p>
+<code>NullSafeUtils.getOr(company, "director", "address", "street").or("street not available");</code>
+</p>
+
+<pre>
+       String alternative = "not found";
+        
+        // the postoce is null so we are expecting to be returned the alternative
+        assertEquals(alternative, NullSafeUtils.getOr(company, "director", "address", "postcode").or(alternative));     
+</pre>
