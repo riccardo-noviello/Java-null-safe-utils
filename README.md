@@ -27,16 +27,16 @@ if(computer != null){
 }</pre>
 
 <h3>Usage:</h3>
-This is very simple Utils you can use as follows:
+There are three methods in the Utils, <b>isAccessible(..)</b>, <b>get(..)</b> and <b>getOr(..)</b>. It is very simple, you can use them as follows:
 
-<p><b>1) Find out if a property is null</b></p>
+<p><b>1) "isAccessible()" Find out if a property is null</b></p>
 <p>
 <code>NullSafeUtils.isAccessible(company, "director", "address", "street");</code></p>
 <p>Having an Object company we can dig into the Object's properties "director", "address" and "street" safely since the null checks are all done for us. Finally we will be told if the property is indeed accessible (boolean).
 </p>
 
 
-<p><b>2) Get the property<b></p>
+<p><b>2) "get()" Get the property<b></p>
 
 <p>
 <code>NullSafeUtils.get(company, "director", "address", "street");</code>
@@ -71,7 +71,7 @@ This is very simple Utils you can use as follows:
 
 
 
-<p><b>3) Get the property or provide an alternative<b></p>
+<p><b>3) "getOr()" Get the property or provide an alternative<b></p>
 
 <p>
 <code>NullSafeUtils.getOr(company, "director", "address", "street").or("street not available");</code>
