@@ -3,7 +3,7 @@ Java-null-safe-utils
 
 <h3>Description:</h3>
 <p>
-This simple Java Library inteds to provide Java code with a shorter, safer syntax to access Object's properties avoiding <code>NullPointerExceptions</code>.
+This simple Java Library intends to provide Java code with a shorter, safer syntax to access Object's properties avoiding <code>NullPointerExceptions</code>.
 </p>
 
 <p>
@@ -27,7 +27,7 @@ if(computer != null){
 }</pre>
 
 <h3>Usage:</h3>
-There are three methods in the Utils, <b>isAccessible(..)</b>, <b>get(..)</b> and <b>getOr(..)</b>. It is very simple, you can use them as follows:
+There are three methods in the Utils, <b>isAccessible()</b>, <b>get()</b> and <b>getOr()</b>. It is very simple, you can use them as follows:
 
 <p><b>1) "isAccessible()" Find out if a property is null</b></p>
 <p>
@@ -43,7 +43,7 @@ There are three methods in the Utils, <b>isAccessible(..)</b>, <b>get(..)</b> an
 </p>
 
 <p>
-<b>An Example:</b></br></br></br></br>
+<b>An Example:</b></br>
 
 <pre>
     
@@ -64,11 +64,11 @@ There are three methods in the Utils, <b>isAccessible(..)</b>, <b>get(..)</b> an
         // This is the same code using Nullutils
         addressFromUtils = (String) NullSafeUtils.get(company, "director", "address", "street");
         
+        // We expect the same result
         assertEquals(addressFromJava, addressFromUtils);
     
 </pre>
 </p>
-
 
 
 <p><b>3) "getOr()" Get the property or provide an alternative<b></p>
@@ -77,6 +77,7 @@ There are three methods in the Utils, <b>isAccessible(..)</b>, <b>get(..)</b> an
 <code>NullSafeUtils.getOr(company, "director", "address", "street").or("street not available");</code>
 </p>
 
+<b>An Example:</b></br>
 <pre>
        String alternative = "not found";
         
