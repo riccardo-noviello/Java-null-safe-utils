@@ -26,6 +26,22 @@ if(computer != null){
   }
 }</pre>
 
+<h3>Maven:</h3>
+```<repositories>
+  <repository>
+    <id>rik-snapshots</id>
+    <url>https://github.com/rik86/rik-mvn-repo/raw/master/snapshots</url>
+  </repository>
+</repositories>
+
+...
+<dependency>
+         <artifactId>NullUtils</artifactId>
+         <groupId>com.riccardonoviello</groupId>
+         <version>1.0</version>
+</dependency>
+```
+
 <h3>Usage:</h3>
 There are three methods in the Utils, <b>isAccessible()</b>, <b>get()</b> and <b>getOr()</b>. It is very simple, you can use them as follows:
 
