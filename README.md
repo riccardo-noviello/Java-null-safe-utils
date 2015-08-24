@@ -27,14 +27,15 @@ if(computer != null){
 }</pre>
 
 <h3>Maven:</h3>
-```<repositories>
+
+```
+<repositories>
   <repository>
     <id>rik-snapshots</id>
     <url>https://github.com/rik86/rik-mvn-repo/raw/master/snapshots</url>
   </repository>
 </repositories>
 
-...
 <dependency>
          <artifactId>NullUtils</artifactId>
          <groupId>com.riccardonoviello</groupId>
