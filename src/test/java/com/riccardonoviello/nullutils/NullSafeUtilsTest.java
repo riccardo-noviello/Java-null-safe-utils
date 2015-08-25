@@ -50,6 +50,15 @@ public class NullSafeUtilsTest {
     }
 
     @Test
+    public void get_doesNotThrowNullPointer_nullValue2() throws NullPointerException {
+        Person person = new Person();
+        String name = NullSafeUtils.get(person, "name");
+        assertNull(name);
+        String alternative = NullSafeUtils.getOr(person, "name").or("Nothing");
+        assertNotNull(alternative);
+    }
+    
+    @Test
     public void get_doesNotThrowNullPointer_notNull() throws NullPointerException {
         Person person = new Person();
         person.setName("Riccardo");
@@ -117,7 +126,7 @@ public class NullSafeUtilsTest {
         }
         
         // This is the same code using Nullutils
-        addressFromUtils = (String) NullSafeUtils.get(company, "director", "address", "street");
+        addressFromUtils = NullSafeUtils.get(company, "director", "address", "street");
         
         assertEquals(addressFromJava, addressFromUtils);
         

@@ -13,8 +13,8 @@ public class Alternable {
         this.object = o;
     }
     
-    public Object or(Object alternative){
-        return (object!=null)?object : alternative;
+    public <T>T or(Object alternative){
+        return (T) ((object!=null)?object : alternative);
     }
     
     /**

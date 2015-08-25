@@ -13,28 +13,26 @@ import org.apache.commons.beanutils.PropertyUtils;
 public class NullSafeUtils {
 
     private static final Logger logger = Logger.getLogger(NullSafeUtils.class.getName());
-    
+
     /**
-     *
-     * @param <T>
-     * @param members
+     * 
      * @param object
-     * @return
+     * @param members
+     * @return 
      */
-    public static <T> boolean isAccessible(T object, String... members) {
+    public static boolean isAccessible(Object object, String... members) {
         return isAccessible(members, object, 0, members.length);
     }
 
     /**
-     *
-     * @param <T>
+     * 
      * @param members
      * @param object
      * @param found
      * @param originalSize
-     * @return
+     * @return 
      */
-    private static <T> boolean isAccessible(String[] members, T object, int found, final int originalSize) {
+    private static boolean isAccessible(String[] members, Object object, int found, final int originalSize) {
                 
         if (members.length != 0) {
             try {
@@ -56,7 +54,7 @@ public class NullSafeUtils {
      * @param members
      * @return 
      */
-    public static <T> Object get(T object, String... members) {
+    public static <T>T get(Object object, String... members) {
         return get(members, object, 0, members.length);
     }
 
@@ -69,7 +67,7 @@ public class NullSafeUtils {
      * @param originalSize
      * @return 
      */
-    private static <T> Object get(String[] members, T object, int found, final int originalSize) {
+    private static <T> T get(String[] members, Object object, int found, final int originalSize) {
         Object o = null;
         if (members.length != 0) {
             try {
@@ -81,19 +79,17 @@ public class NullSafeUtils {
                 logger.log(Level.SEVERE, "Error accessing Property.",ex);
             }
         }
-        return (found == originalSize) ? object : o;
+        return (T) ((found == originalSize) ? object : o);
     }
     
     
     /**
      * 
-     * @param <T>
      * @param object
-     * @param alternative
      * @param members
      * @return 
      */
-    public static <T> Alternable getOr(T object, String... members) {
+    public static Alternable getOr(Object object, String... members) {
         Object result = get(members, object, 0, members.length);
         return new Alternable(result);        
     }    
